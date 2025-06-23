@@ -7,7 +7,7 @@ import joblib
 from sklearn.metrics import mean_squared_error,r2_score
 import math
 
-df = pd.read_csv('data.csv')
+df = pd.read_csv('new_data.csv')
 
 print(df)
 
