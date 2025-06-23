@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model
 import numpy as np
 from sklearn.model_selection import train_test_split
-import 
+import joblib
 
 df = pd.read_csv('data.csv')
 
@@ -22,6 +22,8 @@ print(x_train)
 linear_regression = linear_model.LinearRegression()
 
 linear_regression.fit(x_train,y_train)#training
+
+joblib.dump(linear_regression,'height_model.pkl')
 
 input = np.array([[160]])
 
