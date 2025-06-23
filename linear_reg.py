@@ -4,6 +4,8 @@ from sklearn import linear_model
 import numpy as np
 from sklearn.model_selection import train_test_split
 import joblib
+from sklearn.metrics import mean_squared_error,r2_score
+import math
 
 df = pd.read_csv('data.csv')
 
@@ -25,10 +27,20 @@ linear_regression.fit(x_train,y_train)#training
 
 joblib.dump(linear_regression,'height_model.pkl')
 
-input = np.array([[160]])
+print("training completed!")
 
-result = linear_regression.predict(input)
+pred_y = linear_regression.predict(x_test)
 
-print(result)
+mse = mean_squared_error(y_test,pred_y)
+print(mse)
+
+rmse = math.sqrt(mse)
+print(rmse)
+
+r2score = r2_score(y_test,pred_y)
+
+print(r2score)
+
+
 
 
